@@ -1,0 +1,25 @@
+.center{
+  margin: 0 auto;
+  width: 80%;
+}
+.usuario_ppt{
+  margin-top: 100px;
+}
+.jugar{
+
+  margin-top: 60px;
+}
+.jumbotron{
+  margin-top: 40px;
+  background-color: #A8CF46;
+ .titulo h3{
+   margin-top: 60px;
+   text-align: center;
+   font-size: 40px;
+ }
+
+ .btn-primary {
+   height: 40px;
+   font-size: 20px;
+
+ }

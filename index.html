@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <title>piedra papel o tijera</title>
+</head>
+<body style="background-color: gold;">
+<script src="script.js"></script>
+<section class = "titulo">
+  <h1 style="text-align: center; padding-top: 20px;"> Juega tu cachipun!!! </h1>
+</section>
+
+<div class="container">
+    <div class="row">
+      <div class="center">
+        <section class="usuario_ppt">
+          <div class="col-md-4">
+            <img src="images/piedra.png" alt="piedra" name="piedra" id="elige" >
+          </div>
+          <div class="col-md-4">
+            <img src="images/papel.png" alt="papel" name="papel" id="elige">
+          </div>
+          <div class="col-md-4">
+            <img src="images/tijera.png" alt="tijera" name="tijera" id="elige">
+          </div>
+
+        </section>
+
+    </div>
+  </div>
+  <div class=row>
+    <div class="col-md-offset-4 col-md-4 ">
+        <button type="button" class="btn btn-primary center jugar" aria-haspopup="true" aria-expanded="false" name = "jugar">Jugar</button>
+    </div>
+    <div style = "text-align:center" class="col-md-12">
+      <div class="jumbotron">
+        <h2></h2>
+        <h1></h1>
+        <h4></h4>
+          <p></p>
+        </div>
+    </div>
+  </div>
+
+<script type="text/javascript">
+var piedra = document.getElementsByName("piedra")[0];
+var papel = document.getElementsByName("papel")[0];
+var tijera = document.getElementsByName("tijera")[0];
+var jugar = document.getElementsByName("jugar")[0];
+var elige = document.getElementById("elige");
+var h2 = document.getElementsByTagName("h2")[0];
+var h1 = document.getElementsByTagName("h1")[0];
+var h4 = document.getElementsByTagName("h4")[0];
+
+
+var azar = "";
+var input_computador = "";
+var puntaje = 0;
+
+
+
+piedra.onclick = function(){
+      input_usuario = "Piedra";
+      papel.style.width = "200px"
+      tijera.style.width = "200px"
+      piedra.style.width = "300px"
+
+  }
+papel.onclick = function(){
+      input_usuario = "Papel";
+      piedra.style.width = "200px"
+      tijera.style.width = "200px"
+      papel.style.width = "300px"
+
+  }
+tijera.onclick = function(){
+      input_usuario = "Tijera";
+      papel.style.width = "200px"
+      piedra.style.width = "200px"
+      tijera.style.width = "300px"
+
+  }
+
+jugar.onclick =  function(){
+      azar =  Math.round(Math.random() * 3);
+      switch(azar) {
+          case 1:
+              input_computador = "Piedra";
+              h2.innerHTML = "Computador elige: " + input_computador;
+
+              break;
+
+          case 2:
+              input_computador = "Papel";
+
+              h2.innerHTML = "Computador elige: " + input_computador;
+              break;
+          case 3:
+              input_computador = "Tijera";
+              h2.innerHTML = "Computador elige: " + input_computador;
+              break;
+      }
+
+      if (input_computador == "Piedra" && input_usuario == "Tijera") {
+          h1.innerHTML = "Gana computador " ;
+          puntaje -= 1;
+          h4.innerHTML = "Puntaje: " + puntaje ;
+      }
+      if (input_computador == "Papel" && input_usuario == "Piedra") {
+          h1.innerHTML = "Gana computador " ;
+          puntaje -= 1;
+          h4.innerHTML = "Puntaje: " + puntaje ;
+      }
+      if (input_computador == "Tijera" && input_usuario == "Papel") {
+          h1.innerHTML = "Gana computador " ;
+          puntaje -= 1;
+          h4.innerHTML = "Puntaje: " + puntaje ;
+      }
+
+      if (input_computador == input_usuario) {
+          h1.innerHTML = "Es un empate" ;
+          h4.innerHTML = "Puntaje: " + puntaje ;
+      }
+
+      if (input_usuario == "Piedra" && input_computador == "Tijera") {
+          h1.innerHTML = "Gana usuario" ;
+          puntaje += 1;
+          h4.innerHTML = "Puntaje: " + puntaje ;
+      }
+      if (input_usuario == "Papel" && input_computador == "Piedra") {
+          h1.innerHTML = "Gana usuario" ;
+          puntaje += 1;
+          h4.innerHTML = "Puntaje: " + puntaje ;
+      }
+      if (input_usuario == "Tijera" && input_computador == "Papel") {
+          h1.innerHTML = "Gana usuario" ;
+          puntaje += 1;
+          h4.innerHTML = "Puntaje: " + puntaje ;
+      }
+
+    }
+
+
+
+
+</script>
+
+</div>
+</body>
+</html>
